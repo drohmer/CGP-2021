@@ -24,7 +24,7 @@ void scene_structure::initialize()
 	// A central cube
 	cube.initialize(mesh_primitive_cube(), "Cube");
 	cube.transform.translation = { -2,0,0.5f };
-	cube.transform.rotation = rotation_transform::from_axis_angle({ 0,0,1 }, pi / 4.0f);
+	cube.transform.rotation = rotation_transform::from_axis_angle({ 0,0,1 }, Pi / 4.0f);
 
 	// The ground
 	ground.initialize(mesh_primitive_quadrangle({ -30,-30,0 }, { -30,30,0 }, { 30,30,0 }, { 30,-30,0 }), "Quad");
@@ -41,7 +41,7 @@ void scene_structure::initialize()
 
 
 	// Initialize the camera
-	environment.projection = camera_projection::perspective(50.0f *pi/180, 1.0f, 0.1f, 500.0f);
+	environment.projection = camera_projection::perspective(50.0f *Pi/180, 1.0f, 0.1f, 500.0f);
 	environment.camera.distance_to_center = 10.0f;
 	environment.camera.look_at({ 3,1,2 }, { 0,0,0.5 }, { 0,0,1 });
 }

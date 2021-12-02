@@ -14,7 +14,7 @@ void scene_structure::initialize()
 	// ***************************************** //
 	global_frame.initialize(mesh_primitive_frame(), "Frame");
 	torus.initialize(mesh_primitive_torus(), "Torus");
-	torus.transform.rotation = rotation_transform::from_axis_angle({ 1,0,0 }, pi/2);
+	torus.transform.rotation = rotation_transform::from_axis_angle({ 1,0,0 }, Pi/2);
 }
 
 

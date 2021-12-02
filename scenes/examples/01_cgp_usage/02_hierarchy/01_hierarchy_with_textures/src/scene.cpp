@@ -28,7 +28,7 @@ void scene_structure::initialize()
 	mesh_drawable wing_R; 
 	wing_R.initialize(mesh_load_file_obj("assets/wing.obj"), "wing_R");
 	wing_R.texture = opengl_load_texture_image("assets/wing.png");
-	wing_R.transform.rotation = rotation_transform::from_axis_angle({ 0,0,1 }, pi);
+	wing_R.transform.rotation = rotation_transform::from_axis_angle({ 0,0,1 }, Pi);
 
 	mesh_drawable eye_L; 
 	eye_L.initialize(mesh_primitive_sphere(0.2f), "eye_R");
@@ -71,10 +71,10 @@ void scene_structure::display()
 	timer.update();
 	float const t = timer.t;
 	hierarchy["body"].transform.translation = { 0,0.2f * std::cos(5 * t),0 };
-	hierarchy["wing_L"].transform.rotation = rotation_transform::from_axis_angle({ 0,0,1 }, pi / 8.0f * (1 + std::cos(20 * t)));
-	hierarchy["wing_R"].transform.rotation = rotation_transform::from_axis_angle({ 0,0,-1 }, pi / 8.0f * (1 + std::cos(20 * t)));
+	hierarchy["wing_L"].transform.rotation = rotation_transform::from_axis_angle({ 0,0,1 }, Pi / 8.0f * (1 + std::cos(20 * t)));
+	hierarchy["wing_R"].transform.rotation = rotation_transform::from_axis_angle({ 0,0,-1 }, Pi / 8.0f * (1 + std::cos(20 * t)));
 	hierarchy["head"].transform.translation = vec3{ 0,0,1.8 } + vec3{ 0,0,0.1f * std::cos(2.5 * t) };
-	hierarchy["head"].transform.rotation = rotation_transform::from_axis_angle({ 0,1,0 }, pi / 8.0f * std::cos(5 * t));
+	hierarchy["head"].transform.rotation = rotation_transform::from_axis_angle({ 0,1,0 }, Pi / 8.0f * std::cos(5 * t));
 
 	// Update the global coordinate transformation
 	hierarchy.update_local_to_global_coordinates();

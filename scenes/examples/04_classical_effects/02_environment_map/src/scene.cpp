@@ -25,7 +25,7 @@ void scene_structure::initialize()
 	shape[shape_sphere].initialize(mesh_primitive_sphere(), "Sphere", shader_environment_map);
 	shape[shape_cylinder].initialize(mesh_primitive_cylinder(0.8f, { -2,0,0 }, { 2,0,0 }, 20, 40, true), "Cylinder", shader_environment_map);
 	shape[shape_camel].initialize(mesh_load_file_obj("assets/camel.obj"), "Camel", shader_environment_map);
-	shape[shape_camel].transform.rotation = rotation_transform::from_axis_angle({ 0,1,0 }, pi / 2.0f) * rotation_transform::from_axis_angle({ 1,0,0 }, -pi / 2.0f);
+	shape[shape_camel].transform.rotation = rotation_transform::from_axis_angle({ 0,1,0 }, Pi / 2.0f) * rotation_transform::from_axis_angle({ 1,0,0 }, -Pi / 2.0f);
 
 	// Shapes without environment map can be associated to the sandard "mesh" shader
 	global_frame.initialize(mesh_primitive_frame(), "Frame");

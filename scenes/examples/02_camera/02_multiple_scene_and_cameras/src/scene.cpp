@@ -10,7 +10,7 @@ void scene_structure::initialize()
 	environment_ortho.projection = camera_projection::orthographic(-1, 1, -1, 1, -1, 1);
 	environment_ortho.camera.distance_to_center = 2.5f;
 	environment_ortho.light = { 0,0,1 };
-	environment_ortho.camera.look_at({ 0,0,3 }, { 0,0,0 }, { 0,1,0 });
+	environment_ortho.camera.look_at({ 0, 0, 0.5f }, {0,0,0}, {0,1,0});
 
 
 	// Set up of the perspective camera
@@ -37,7 +37,7 @@ void scene_structure::initialize()
 void scene_structure::display()
 {
 	timer.update();
-	cube.transform.rotation = rotation_transform::from_axis_angle({ 1,0,0 }, 1.1f * pi / 2.0f) * rotation_transform::from_axis_angle({ 0,0,1 }, timer.t);
+	cube.transform.rotation = rotation_transform::from_axis_angle({ 1,0,0 }, 1.1f * Pi / 2.0f) * rotation_transform::from_axis_angle({ 0,0,1 }, timer.t);
 
 	if (gui.display_frame)
 		draw(global_frame, environment); // display the global frame only in perspective view

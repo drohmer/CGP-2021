@@ -28,7 +28,7 @@ void compute_light_position(float t, scene_environment_with_multiple_lights& env
 	environment.spotlight_position[0] = { std::cos(t), std::sin(t), 0.5 + 0.2 * std::cos(3 * t) };
 
 	environment.spotlight_color[1] = { 0.0f, 1.0f, 0.0f };
-	environment.spotlight_position[1] = { std::cos(0.5 * t + pi / 2), std::sin(0.5 * t + pi / 2), 0.5 + 0.2 * std::cos(2 * t) };
+	environment.spotlight_position[1] = { std::cos(0.5 * t + Pi / 2), std::sin(0.5 * t + Pi / 2), 0.5 + 0.2 * std::cos(2 * t) };
 
 	environment.spotlight_position[2] = { 0,0,1.05f };
 	environment.spotlight_color[2] = 2 * (std::cos(t) + 1.0f) / 2.0 * vec3(1, 1, 1);
