@@ -1,6 +1,6 @@
 
 #include "cgp/cgp.hpp" // Give access to the complete CGP library
-#include <iostream> 
+#include <iostream>  
 
 // Custom scene of this code
 #include "scene.hpp"
