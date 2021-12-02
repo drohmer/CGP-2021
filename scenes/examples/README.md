@@ -13,7 +13,7 @@ Direct use of CGP structures to achieve various effects.
 * [Basic 3D scene with standard file organization](01_cgp_usage/01_basic_usage/02_default_scene_with_scene_helper/)
 * [Load an external mesh (.obj)](01_cgp_usage/01_basic_usage/03_mesh_load_file_obj/)
 
-* [Hierarchical animated shape with textures](01_cgp_usage/02_hierarchy/01_hierarchy_with_texture/)
+* [Hierarchical animated shape with textures](01_cgp_usage/02_hierarchy/01_hierarchy_with_textures/)
 
 * [Simple call to Marching Cube](01_cgp_usage/03_implicit_surface/01_marching_cube_simple)
 * [Dynamically updated Marching Cube](01_cgp_usage/03_implicit_surface/02_marching_cube_with_dynamics_gui)
