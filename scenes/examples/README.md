@@ -32,7 +32,7 @@ Using custom shaders beyond the default mesh display with Phong shading.
 * [Computing deformation in a shader](03_shader_effects/01_shader_deformation/)
 * [Use of multiple shaders](03_shader_effects/02_multiple_shaders/)
 * [Transparency in textures](03_shader_effects/03_transparent_billboards/)
-* [Multi-texturing](03_shader_effects/04_multiple_textures/)
+* [Multi-texturing](03_shader_effects/04_multiple_textures_with_blending/)
 * [Multiple lights and fog](03_shader_effects/05_multiple_lights/)
 * [Multipass and framebuffer](03_shader_effects/06_framebuffer_multipass/)
 
