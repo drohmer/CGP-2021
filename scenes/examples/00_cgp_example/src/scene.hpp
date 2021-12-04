@@ -1,7 +1,6 @@
 #pragma once
 
 #include "cgp/cgp.hpp"
-#include "particles/particles.hpp"
 
 // The element of the GUI that are not already stored in other structures
 struct gui_parameters {
