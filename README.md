@@ -69,4 +69,6 @@ $ build/[executable-name]
 _Once opened by Visual Studio, the project should be configured to compile and be executed directly without further setup. Make sure your Windows version is updated for Visual Studio to be able to compile correctly C++14._
 
 
+### Detailed system set-up and compilation
 
+A detailed tutorial on how to install and compile C++ code is available here if needed: [Detailed installation and compilation for CGP](https://imagecomputing.net/cgp/compilation).
