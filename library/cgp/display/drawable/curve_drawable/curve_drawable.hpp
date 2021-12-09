@@ -2,7 +2,6 @@
 
 #include "cgp/display/opengl/opengl.hpp"
 #include "cgp/containers/containers.hpp"
-#include <map>
 
 namespace cgp
 {
@@ -37,6 +36,8 @@ namespace cgp
 	{
 		// Setup shader
 		assert_cgp(drawable.shader != 0, "Try to draw curve_drawable without shader (" + drawable.name + ")");
+		if (drawable.number_position == 0) return;
+
 		glUseProgram(drawable.shader); opengl_check;
 
 		// Send uniforms for this shader
@@ -45,7 +46,6 @@ namespace cgp
 		opengl_uniform(drawable.shader, "model", drawable.transform.matrix());
 
 		// Call draw function
-		assert_cgp(drawable.number_position>0, "Try to draw curve_drawable with 0 position (" + drawable.name + ")"); opengl_check;
 		glBindVertexArray(drawable.vao); opengl_check;
 		glDrawArrays(GL_LINE_STRIP, 0, drawable.number_position); opengl_check;
 

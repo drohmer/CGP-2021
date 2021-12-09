@@ -44,3 +44,10 @@ Additional standard OpenGL effects implemented in the CGP context.
 * [Skybox](04_classical_effects/01_skybox/)
 * [Environmental map](04_classical_effects/02_environment_map/)
 * [Shadow map](04_classical_effects/03_shadow/)
+
+## Sketching
+
+Example of direct drawings on screen
+
+* [Point click](05_sketching/01_point_click/)
+* [Curve sketch](05_sketching/02_curve_sketch/)
