@@ -7,6 +7,7 @@
 struct scene_structure {
 	
 	cgp::scene_environment_basic environment; // Standard environment controler
+	cgp::inputs_interaction_parameters inputs; // storage for the current values of the inputs (mouse, keyboard, window dimension) that can be use for interaction purpose
 
 	// Store the curve sketched on screen. 
 	//   Each new stroke (continuous click+motion of the mouse) is a new element of the buffer
@@ -24,10 +25,10 @@ struct scene_structure {
 
 
 	// Add new points in the sketch_drawable
-	void mouse_move(cgp::inputs_interaction_parameters const& inputs);
+	void mouse_move();
 
 	// Add a new stroke in the sketch_drawable
-	void mouse_click(cgp::inputs_interaction_parameters const& inputs);
+	void mouse_click();
 
 
 };

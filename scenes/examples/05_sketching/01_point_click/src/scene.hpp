@@ -7,7 +7,7 @@
 struct scene_structure {
 	
 	cgp::scene_environment_basic environment; // Standard environment controler
-
+	cgp::inputs_interaction_parameters inputs; // User inputs (mouse, keyboard, etc)
 	
 	cgp::buffer<cgp::vec3> points; // Stores every clicked position
 	cgp::mesh_drawable sphere; // Sphere used to display the clicked points
@@ -24,7 +24,7 @@ struct scene_structure {
 
 
 	// Add a new clicked point
-	void mouse_click(cgp::inputs_interaction_parameters const& inputs);
+	void mouse_click();
 
 
 };

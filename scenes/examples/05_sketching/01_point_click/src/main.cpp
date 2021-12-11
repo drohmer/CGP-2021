@@ -13,9 +13,6 @@
 // A helper tool to factorize common default functions (Window initialization, code that starts frame, etc)
 cgp::helper_common_scene helper_common;
 
-// A storage for the current values of the inputs (mouse, keyboard, window dimension) that can be use for interaction purpose
-cgp::inputs_interaction_parameters inputs;
-
 // The custom structure of the current scene defined in "scene.hpp"
 scene_structure scene;
 
@@ -53,8 +50,8 @@ int main(int, char* argv[])
 	while (!glfwWindowShouldClose(window))
 	{
 		// Reset the screen for a new frame
-		helper_common.frame_begin(scene.environment.background_color, window, inputs.window, inputs.mouse.on_gui);
-		scene.environment.projection.update_aspect_ratio(inputs.window.aspect_ratio());
+		helper_common.frame_begin(scene.environment.background_color, window, scene.inputs.window, scene.inputs.mouse.on_gui);
+		scene.environment.projection.update_aspect_ratio(scene.inputs.window.aspect_ratio());
 		
 		// Display the ImGUI interface (button, sliders, etc)
 		scene.display_gui();
@@ -79,35 +76,35 @@ int main(int, char* argv[])
 // This function is called everytime the window is resized
 void window_size_callback(GLFWwindow* , int width, int height)
 {
-	inputs.window = { width, height };
+	scene.inputs.window = { width, height };
 }
 
 // This function is called everytime the mouse is moved
 void mouse_move_callback(GLFWwindow* /*window*/, double xpos, double ypos)
 {
-	inputs.mouse_position_update( { xpos, ypos } );
+	scene.inputs.mouse_position_update( { xpos, ypos } );
 }
 
 // This function is called everytime a mouse button is clicked/released
 void mouse_click_callback(GLFWwindow* /*window*/, int button, int action, int /*mods*/)
 {
-	inputs.mouse.click.update_from_glfw_click(button, action);
+	scene.inputs.mouse.click.update_from_glfw_click(button, action);
 
-	if(!inputs.mouse.on_gui)
-		scene.mouse_click(inputs);
+	if(!scene.inputs.mouse.on_gui)
+		scene.mouse_click();
 }
 
 // This function is called everytime a keyboard touch is pressed/released
 void keyboard_callback(GLFWwindow* /*window*/, int key, int , int action, int /*mods*/)
 {
-	inputs.keyboard.update_from_glfw_key(key, action);
+	scene.inputs.keyboard.update_from_glfw_key(key, action);
 }
 
 // Standard initialization procedure
 GLFWwindow* standard_window_initialization(int width, int height)
 {
 	// Update storage for window size for the scene
-	inputs.window = { width, height };
+	scene.inputs.window = { width, height };
 
 	// Create the window using GLFW
 	GLFWwindow* window = cgp::create_window(width, height);

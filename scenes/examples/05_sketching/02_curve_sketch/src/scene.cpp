@@ -29,7 +29,7 @@ static vec3 unproject(camera_projection const& P, vec2 p_screen)
 }
 
 
-void scene_structure::mouse_click(cgp::inputs_interaction_parameters const& inputs)
+void scene_structure::mouse_click()
 {
 	if (inputs.mouse.click.last_action == last_mouse_cursor_action::click_left) 
 	{
@@ -43,7 +43,7 @@ void scene_structure::mouse_click(cgp::inputs_interaction_parameters const& inpu
 		sketch_drawable[k_sketch].push_back(unproject(environment.projection, inputs.mouse.position.current));
 	}
 }
-void scene_structure::mouse_move(cgp::inputs_interaction_parameters const& inputs)
+void scene_structure::mouse_move()
 {
 	if (inputs.mouse.click.left) {
 		// Add the new clicked position

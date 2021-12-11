@@ -33,7 +33,6 @@ include_directories("src")
 message(STATUS "Include CGP lib and external dependencies files from relative path")
 include(${ABS_PATH_TO_LIBRARY})
 
-
 add_definitions(-DSOLUTION)
 
 # Uncomment the following line to generate an error (instead of a warning) when uniform values cannot be find in the shader
@@ -74,7 +73,6 @@ if(MSVC)
 
     add_definitions(/MP /wd4244 /wd4127 /wd4267 /wd4706 /wd4458 /wd4996 /wd26495 /openmp)   # Parallel build (/MP) + disable some warnings
     source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${src_files})  #Allow to explore source directories as a tree in Visual Studio
-
 endif()
 
 

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.8)
 
 # Relative path to the library
 # => Adapt this directory to your relative path if needed
-set(PATH_TO_LIBRARY "../../../library/CMakeLists.txt") 
+set(PATH_TO_LIBRARY "../../../../library/CMakeLists.txt") 
 
 # Check that the path to the library is correct
 get_filename_component(ABS_PATH_TO_LIBRARY ${PATH_TO_LIBRARY} ABSOLUTE)
@@ -32,7 +32,6 @@ include_directories("src")
 # Include files from the CGP library (as well as external dependencies)
 message(STATUS "Include CGP lib and external dependencies files from relative path")
 include(${ABS_PATH_TO_LIBRARY})
-
 
 add_definitions(-DSOLUTION)
 
@@ -74,7 +73,6 @@ if(MSVC)
 
     add_definitions(/MP /wd4244 /wd4127 /wd4267 /wd4706 /wd4458 /wd4996 /wd26495 /openmp)   # Parallel build (/MP) + disable some warnings
     source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${src_files})  #Allow to explore source directories as a tree in Visual Studio
-
 endif()
 
 
