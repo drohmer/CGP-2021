@@ -22,6 +22,8 @@ The main spirit of CGP is to provide
 
 [See CGP Documentation](https://imagecomputing.net/cgp/index.html)
 
+Various examples of CGP use can be found in [scenes/examples/](scenes/examples/)
+
 <a name="Compilation"></a>
 
 ## Compile the library
