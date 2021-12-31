@@ -132,4 +132,23 @@ namespace cgp
 		return model;
 	}
 
+
+	namespace draw_split {
+		void set_shader(mesh_drawable const& drawable)
+		{
+			// Setup shader
+			assert_cgp(drawable.shader != 0, "Try to draw mesh_drawable without shader [name:" + drawable.name + "]");
+			assert_cgp(drawable.texture != 0, "Try to draw mesh_drawable without texture [name:" + drawable.name + "]");
+			glUseProgram(drawable.shader); opengl_check;
+		}
+		void draw_call(mesh_drawable const& drawable)
+		{
+			// Call draw function
+			assert_cgp(drawable.number_triangles > 0, "Try to draw mesh_drawable with 0 triangles [name:" + drawable.name + "]"); opengl_check;
+			glBindVertexArray(drawable.vao);   opengl_check;
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, drawable.vbo.at("index")); opengl_check;
+			glDrawElements(GL_TRIANGLES, GLsizei(drawable.number_triangles * 3), GL_UNSIGNED_INT, nullptr); opengl_check;
+		}
+	}
+
 }

@@ -85,6 +85,7 @@ namespace cgp
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
+
 	template <typename SCENE_ENVIRONMENT>
 	void draw_wireframe(mesh_drawable const& drawable, SCENE_ENVIRONMENT const& scene, vec3 const& color)
 	{
@@ -98,5 +99,26 @@ namespace cgp
 		draw(wireframe, scene);
 		glDisable(GL_POLYGON_OFFSET_LINE);
 		glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+	}
+
+
+	// Additional possibilities to add custom command between the drawing process in spliting the shader setup/uniform send/draw call.
+	namespace draw_split {
+		void set_shader(mesh_drawable const& drawable);
+		void draw_call(mesh_drawable const& drawable);
+
+		template <typename ENVIRONMENT>
+		void send_uniform(mesh_drawable const& drawable, ENVIRONMENT const& environment)
+		{
+			// Send uniforms for this shader
+			opengl_uniform(drawable.shader, environment);
+			opengl_uniform(drawable.shader, drawable.shading);
+			opengl_uniform(drawable.shader, "model", drawable.model_matrix());
+
+			// Set texture
+			glActiveTexture(GL_TEXTURE0); opengl_check;
+			glBindTexture(GL_TEXTURE_2D, drawable.texture); opengl_check;
+			opengl_uniform(drawable.shader, "image_texture", 0);  opengl_check;
+		}
 	}
 }

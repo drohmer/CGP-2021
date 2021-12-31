@@ -12,6 +12,7 @@ Direct use of CGP structures to achieve various effects.
 * [Basic 3D scene in a single file](01_cgp_usage/01_basic_usage/01_default_scene_single_raw_file/)
 * [Basic 3D scene with standard file organization](01_cgp_usage/01_basic_usage/02_default_scene_with_scene_helper/)
 * [Load an external mesh (.obj)](01_cgp_usage/01_basic_usage/03_mesh_load_file_obj/)
+* [Dynamical shape update](01_cgp_usage/01_basic_usage/04_shape_evolving_dynamically/)
 
 * [Hierarchical animated shape with textures](01_cgp_usage/02_hierarchy/01_hierarchy_with_textures/)
 
