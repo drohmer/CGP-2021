@@ -7,6 +7,9 @@ namespace cgp
     GLuint opengl_load_texture_image(std::string const& filename, GLint wrap_s, GLint wrap_t)
     {
         image_raw const im = image_load_file(filename);
+        if (im.width == 0 || im.height == 0) {
+            warning_cgp("Warning texture has a size=0", "Filename=" + filename);
+        }
         return opengl_load_texture_image(im, wrap_s, wrap_t);
     }
 

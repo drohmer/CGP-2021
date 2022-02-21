@@ -13,7 +13,7 @@ namespace cgp
 		float scaling;
 
 		affine_rts();
-		explicit affine_rts(affine_rt const& T);
+		affine_rts(affine_rt const& T);
 		explicit affine_rts(rotation_transform const& rotation, vec3 const& translation, float scaling);
 
 
@@ -38,6 +38,9 @@ namespace cgp
 
 	affine_rts operator*(float s, rotation_transform const& r);
 	affine_rts operator*(rotation_transform const& r, float s);
+
+	affine_rts operator*(float s, affine_rt const& T);
+	affine_rts operator*(affine_rt const& T, float s);
 
 
 	affine_rts inverse(affine_rts const& T);

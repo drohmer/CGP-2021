@@ -266,6 +266,17 @@ T& grid_2D<T>::operator[](int2 const& index)
     return data[idx];
 }
 
+template <typename T>
+T const& grid_2D<T>::operator()(int2 const& index) const
+{
+    return (*this)[index];
+}
+
+template <typename T>
+T& grid_2D<T>::operator()(int2 const& index)
+{
+    return (*this)[index];
+}
 
 
 template <typename T>

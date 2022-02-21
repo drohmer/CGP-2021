@@ -167,6 +167,9 @@ namespace cgp
     template <typename T, int N1, int N2> matrix_stack<T, N1, N2>& operator/=(matrix_stack<T, N1, N2>& a, float b);
     template <typename T, int N1, int N2> matrix_stack<T, N1, N2>  operator/(matrix_stack<T, N1, N2> const& a, float b);
 
+    // Unary negation
+    template <typename T, int N1, int N2> matrix_stack<T, N1, N2> operator-(matrix_stack<T, N1, N2> const& m);
+
     // Componentwise multiplication between two matrices with the same size
     template <typename T, int N1, int N2> matrix_stack<T, N1, N2> multiply_componentwise(matrix_stack<T, N1, N2> const& a, matrix_stack<T, N1, N2> const& b);
 
@@ -642,6 +645,7 @@ namespace cgp
     template <typename T, int N1, int N2> matrix_stack<T, N1, N2>& operator*=(matrix_stack<T, N1, N2>& a, float b)
     {
         a.data *= b;
+        return a;
     }
     template <typename T, int N1, int N2, int N3> matrix_stack<T, N1, N3>  operator*(matrix_stack<T, N1, N2> const& a, matrix_stack<T, N2, N3> const& b)
     {
@@ -681,6 +685,13 @@ namespace cgp
     {
         matrix_stack<T, N1, N2> res;
         res.data = a.data / b;
+        return res;
+    }
+
+    template <typename T, int N1, int N2> matrix_stack<T, N1, N2> operator-(matrix_stack<T, N1, N2> const& m)
+    {
+        matrix_stack<T, N1, N2> res = m;
+        res *= -1.0f;
         return res;
     }
 

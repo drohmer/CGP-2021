@@ -87,6 +87,8 @@ namespace cgp
 
     image_raw image_load_jpg(std::string const& filename)
     {
+        assert_file_exist(filename);
+
         int width = 0;
         int height = 0;
         int actual_comps = 0;

@@ -144,5 +144,21 @@ namespace cgp_test
 		}
 
 
+		{
+			using namespace cgp;
+			{
+				mat2 a = { 1,2, 3,4 };
+				a *= 2.0f;
+				assert_cgp_no_msg(is_equal(a, mat2{ 2,4, 6,8 }));
+			}
+			{
+				mat2 const a = { 1,2, 3,4 };
+				mat2 b = -a;
+				assert_cgp_no_msg(is_equal(b, mat2{ -1,-2, -3,-4 }));
+			}
+
+		}
+
+
 	}
 }

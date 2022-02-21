@@ -13,7 +13,7 @@ namespace cgp
 	rotation_transform::rotation_transform(quaternion const& q)
 		:data(q)
 	{
-		assert_cgp(is_equal(norm(q), 1.0f), "Quaternion should have unit norm to represent rotation");
+		assert_cgp(cgp::abs(norm(q)-1.0f)<5e-2f, "Quaternion should have unit norm to represent rotation");
 	}
 
 	rotation_transform rotation_transform::from_quaternion(quaternion const& q)

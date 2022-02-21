@@ -25,6 +25,7 @@ struct scene_structure {
 	cgp::segments_drawable domain_box;   // A drawable representation of the box domain on the marching cube
 
 	cgp::scene_environment_basic environment; // Standard environment controler
+	cgp::inputs_interaction_parameters inputs; // Storage for inputs status (mouse, keyboard, window dimension)
 	gui_parameters gui;                       // Standard GUI element storage
 	
 

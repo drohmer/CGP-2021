@@ -7,7 +7,7 @@ using namespace cgp;
 
 
 // The main function implementing the Flying Mode
-void scene_structure::update_camera(inputs_interaction_parameters const& inputs)
+void scene_structure::update_camera()
 {
 	inputs_keyboard_parameters const& keyboard = inputs.keyboard;
 	camera_head& camera = environment.camera;

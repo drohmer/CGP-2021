@@ -27,7 +27,10 @@ struct scene_structure {
 	cgp::mesh_drawable terrain;         // The terrain loaded from an external file
 
 	cgp::timer_basic timer; // A basic timer for the camera animation
+
 	gui_parameters gui;     // The standard GUI element storage
+	cgp::inputs_interaction_parameters inputs; // Storage for inputs status (mouse, keyboard, window dimension)
+
 	
 
 	
@@ -37,7 +40,7 @@ struct scene_structure {
 	
 	// Function to call in the animation loop in main (*)
 	//   This function replace the standard trackball behavior that must also be removed in the main (from mouse_move_callback)
-	void update_camera(cgp::inputs_interaction_parameters const& inputs); 
+	void update_camera(); 
 	
 
 	void initialize();  // Standard initialization to be called before the animation loop

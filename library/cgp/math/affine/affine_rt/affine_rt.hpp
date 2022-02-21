@@ -4,6 +4,7 @@
 
 namespace cgp
 {
+
 	struct affine_rt
 	{
 		rotation_transform rotation;

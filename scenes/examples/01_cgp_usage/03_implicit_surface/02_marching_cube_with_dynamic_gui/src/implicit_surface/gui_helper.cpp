@@ -12,7 +12,7 @@ void display_gui_implicit_surface(bool& is_update_field, bool& is_update_marchin
 		ImGui::Checkbox("Domain", &gui.display.domain);
 	}
 
-	if (ImGui::CollapsingHeader("Domain"))
+	if (ImGui::CollapsingHeader("3D Domain"))
 	{
 		is_update_field |= ImGui::SliderInt("Samples", &gui.domain.samples, 8, 100);
 

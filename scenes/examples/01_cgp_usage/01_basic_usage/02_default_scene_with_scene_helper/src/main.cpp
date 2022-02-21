@@ -23,7 +23,7 @@ scene_structure scene;
 // Start of the program
 // *************************** //
 
-GLFWwindow* standard_window_initialization(int width, int height);
+GLFWwindow* standard_window_initialization(int width = 0, int height = 0);
 
 int main(int, char* argv[])
 {
@@ -35,7 +35,7 @@ int main(int, char* argv[])
 	// ************************ //
 	
 	// Standard Initialization with dimension in pixels
-	GLFWwindow* window = standard_window_initialization(1280, 1080); 
+	GLFWwindow* window = standard_window_initialization(); 
 	
 	// Custom scene initialization
 	std::cout << "Initialize data of the scene ..." << std::endl;
@@ -84,8 +84,9 @@ void mouse_move_callback(GLFWwindow* /*window*/, double xpos, double ypos)
 {
 	scene.inputs.mouse_position_update( { xpos, ypos } );
 
-	// Default trackball mode - change this behavior as you wish
-	camera_standard_behavior_rotation_trackball(scene.environment.camera, scene.inputs);
+	// Apply camera rotation only if shift is not pressed
+	if (!scene.inputs.keyboard.shift)
+		camera_standard_behavior_rotation(scene.environment.camera, scene.inputs);
 }
 
 // This function is called everytime a mouse button is clicked/released
@@ -101,13 +102,15 @@ void keyboard_callback(GLFWwindow* /*window*/, int key, int , int action, int /*
 }
 
 // Standard initialization procedure
-GLFWwindow* standard_window_initialization(int width, int height)
+GLFWwindow* standard_window_initialization(int width_target, int height_target)
 {
-	// Update storage for window size for the scene
-	scene.inputs.window = { width, height };
-
 	// Create the window using GLFW
-	GLFWwindow* window = cgp::create_window(width, height);
+	GLFWwindow* window = cgp::create_window(width_target, height_target);
+
+	// Update storage for window size for the scene
+	int width = 0, height = 0;
+	glfwGetWindowSize(window, &width, &height);
+	scene.inputs.window = { width, height };
 
 	// Display debug information on command line
 	std::cout << cgp::opengl_info_display() << std::endl;
@@ -119,12 +122,10 @@ GLFWwindow* standard_window_initialization(int width, int height)
 	glfwSetKeyCallback(window, keyboard_callback);            // Event called when a keyboard touch is pressed/released
 	glfwSetMouseButtonCallback(window, mouse_click_callback); // Event called when a button of the mouse is clicked/released
 	glfwSetCursorPosCallback(window, mouse_move_callback);    // Event called when the mouse is moved
-	glfwSetWindowSizeCallback(window, window_size_callback);  // Event called when the window is rescaled              
+	glfwSetWindowSizeCallback(window, window_size_callback);  // Event called when the window is rescaled        
 
 	// Load default shader and initialize default frame
 	helper_common.initialize();
 
 	return window;
 }
-
-

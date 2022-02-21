@@ -122,4 +122,14 @@ namespace cgp
 		return s;
 	}
 
+
+	affine_rts operator*(float s, affine_rt const& T)
+	{
+		return affine_rts(T.rotation, T.translation, s);
+	}
+	affine_rts operator*(affine_rt const& T, float s)
+	{
+		return affine_rts(T.rotation, T.translation, s);
+	}
+
 }

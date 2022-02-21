@@ -18,6 +18,7 @@ struct scene_structure {
 
 	cgp::mesh_drawable global_frame;          // The standard global frame
 	gui_parameters gui;                       // Standard GUI element storage
+	cgp::inputs_interaction_parameters inputs; // Storage for inputs status (mouse, keyboard, window dimension)
 
 	cgp::scene_environment_basic environment;       // Standard environment with perspective
 	cgp::scene_environment_basic environment_ortho; // Second environment with orthographic projection

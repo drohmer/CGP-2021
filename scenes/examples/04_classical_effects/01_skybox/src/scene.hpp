@@ -22,6 +22,7 @@ struct scene_structure {
 
 											  // Standard environment controler with spherical coordinates
 	cgp::scene_environment_basic_camera_spherical_coords environment;
+	cgp::inputs_interaction_parameters inputs; // Storage for inputs status (mouse, keyboard, window dimension)
 	
 
 	// ****************************** //

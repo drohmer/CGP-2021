@@ -25,6 +25,7 @@ struct scene_structure {
 
 	cgp::mesh_drawable global_frame;          // The standard global frame
  	gui_parameters gui;                       // Standard GUI element storage
+	cgp::inputs_interaction_parameters inputs; // Storage for inputs status (mouse, keyboard, window dimension)
 
 											  // Standard environment controler with spherical coordinates
 	scene_environment_with_environment_map environment;

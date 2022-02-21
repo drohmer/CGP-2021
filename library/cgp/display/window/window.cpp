@@ -66,13 +66,21 @@ namespace cgp
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE); // Required for MacOS
         glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);  // Allow possible debug
 
-        glfwWindowHint(GLFW_FOCUSED, GLFW_TRUE); // Take focuss when created
+        glfwWindowHint(GLFW_FOCUSED, GLFW_TRUE); // Take focus when created
         glfwWindowHint(GLFW_SAMPLES, 8); // Multisampling
         glfwWindowHint(GLFW_FLOATING, GLFW_FALSE); // Windows is not always on top
 
 #ifdef __APPLE__
         glfwWindowHint(GLFW_COCOA_RETINA_FRAMEBUFFER, GLFW_FALSE); // To avoid HiDPI issues with pixel size on Mac
 #endif 
+
+        if (width == 0 || height == 0) {
+            // Set width/height automatically from monitor resolution
+            const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+            width = mode->width / 2;
+            height = mode->height / 2;
+        }
+
 
         // Creation of the window
         GLFWwindow* window = glfwCreateWindow(width, height, window_title.c_str(), monitor, share);

@@ -22,6 +22,7 @@ namespace cgp
         buffer_stack<T, 3>(T const& x, buffer_stack<T, 2> const& yz);
         template<typename T1,typename T2, typename T3>
         buffer_stack<T,3>(T1 const& x, T2 const& y, T3 const& z);
+        buffer_stack<T,3>(buffer_stack<T,4> const& v);
 
 
         /** Size of the buffer = 3 */
@@ -91,6 +92,11 @@ namespace cgp
     template<typename T1,typename T2, typename T3>
     buffer_stack<T, 3>::buffer_stack(T1 const& x_arg, T2 const& y_arg, T3 const& z_arg)
         :x(T(x_arg)), y(T(y_arg)), z(T(z_arg))
+    {}
+
+    template <typename T>
+    buffer_stack<T, 3>::buffer_stack(buffer_stack<T, 4> const& v)
+        : x(v.x), y(v.y), z(v.z)
     {}
 
     template <typename T> int buffer_stack<T, 3>::size() const

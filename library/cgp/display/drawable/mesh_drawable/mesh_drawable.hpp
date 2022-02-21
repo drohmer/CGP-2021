@@ -49,6 +49,26 @@ namespace cgp
 
 	template <typename SCENE_ENVIRONMENT>
 	void draw_wireframe(mesh_drawable const& drawable, SCENE_ENVIRONMENT const& environment, vec3 const& color={0,0,1});
+
+
+	// Additional possibilities to split the drawing calls between sub-functions of CGP
+	//  This allows to add custom command between the drawing process in spliting the shader setup/uniform send/draw call without modifying the environment.
+	//  The full draw call (similar to draw(mesh_drawable)) is then
+	//     draw_split::set_shader(mesh_drawable.shader);
+	//     draw_split::set_texture(mesh_drawable.texture);
+	//     draw_split::send_uniform(mesh_drawable);
+	//       ... add any custom uniform here
+	//     opengl_uniform(mesh_drawable.shader, environment);
+	//     draw_split::draw_call(mesh_drawable);
+	namespace draw_split {
+		void set_shader(GLuint shaderID);
+		// Bind a basic 2D texture at GL_TEXTURE0 and send the corresponding 0-value as uniform to "image_texture" variable
+		void set_texture(GLuint textureID, GLuint shaderID); 
+		// Send basic uniforms of mesh drawable (shading and Model matrix)
+		void send_uniform(mesh_drawable const& drawable);
+		// Call the display of the triangles
+		void draw_call(mesh_drawable const& drawable);
+	}
 }
 
 
@@ -102,23 +122,5 @@ namespace cgp
 	}
 
 
-	// Additional possibilities to add custom command between the drawing process in spliting the shader setup/uniform send/draw call.
-	namespace draw_split {
-		void set_shader(mesh_drawable const& drawable);
-		void draw_call(mesh_drawable const& drawable);
 
-		template <typename ENVIRONMENT>
-		void send_uniform(mesh_drawable const& drawable, ENVIRONMENT const& environment)
-		{
-			// Send uniforms for this shader
-			opengl_uniform(drawable.shader, environment);
-			opengl_uniform(drawable.shader, drawable.shading);
-			opengl_uniform(drawable.shader, "model", drawable.model_matrix());
-
-			// Set texture
-			glActiveTexture(GL_TEXTURE0); opengl_check;
-			glBindTexture(GL_TEXTURE_2D, drawable.texture); opengl_check;
-			opengl_uniform(drawable.shader, "image_texture", 0);  opengl_check;
-		}
-	}
 }

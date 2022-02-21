@@ -2,6 +2,17 @@
 
 namespace cgp {
 
+
+	void camera_standard_behavior_rotation(camera_around_center& camera, inputs_interaction_parameters& inputs)
+	{
+		camera_standard_behavior_rotation_trackball(camera, inputs);
+	}
+
+	void camera_standard_behavior_rotation(camera_spherical_coordinates& camera, inputs_interaction_parameters& inputs)
+	{
+		camera_standard_behavior_rotation_spherical_coordinates(camera, inputs);
+	}
+
 	void camera_standard_behavior_rotation_trackball(camera_around_center& camera, inputs_interaction_parameters& inputs)
 	{
 		vec2 const& p1 = inputs.mouse.position.current;

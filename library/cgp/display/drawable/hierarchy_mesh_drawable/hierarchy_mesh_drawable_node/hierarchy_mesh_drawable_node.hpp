@@ -20,6 +20,8 @@ struct hierarchy_mesh_drawable_node
 
 	// Hierarchical affine transform express in relative coordinates with respect to the parent node frame
 	affine_rts transform;
+
+
 	// Hierarchical Affine transform expressed in global coordinates (supposed to be computed automatically)
 	affine_rts global_transform; 
 };

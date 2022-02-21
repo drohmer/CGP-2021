@@ -134,12 +134,27 @@ namespace cgp
 
 
 	namespace draw_split {
-		void set_shader(mesh_drawable const& drawable)
+
+		void set_shader(GLuint shaderID)
 		{
 			// Setup shader
-			assert_cgp(drawable.shader != 0, "Try to draw mesh_drawable without shader [name:" + drawable.name + "]");
-			assert_cgp(drawable.texture != 0, "Try to draw mesh_drawable without texture [name:" + drawable.name + "]");
-			glUseProgram(drawable.shader); opengl_check;
+			assert_cgp(shaderID != 0, "Try to prepare a draw with a shader == 0");
+			glUseProgram(shaderID); opengl_check;
+		}
+		void set_texture(GLuint textureID, GLuint shaderID)
+		{
+			// Set texture
+			assert_cgp(shaderID != 0, "Try to prepare a draw with a shader == 0");
+			assert_cgp(textureID != 0, "Try to prepare a draw with a texture == 0");
+
+			glActiveTexture(GL_TEXTURE0); opengl_check;
+			glBindTexture(GL_TEXTURE_2D, textureID); opengl_check;
+			opengl_uniform(shaderID, "image_texture", 0);  opengl_check;
+		}
+		void send_uniform(mesh_drawable const& drawable)
+		{
+			opengl_uniform(drawable.shader, drawable.shading);
+			opengl_uniform(drawable.shader, "model", drawable.model_matrix());
 		}
 		void draw_call(mesh_drawable const& drawable)
 		{

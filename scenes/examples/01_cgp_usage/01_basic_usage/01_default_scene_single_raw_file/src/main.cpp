@@ -61,9 +61,13 @@ int main(int, char* argv[])
 	std::cout << "Run " << argv[0] << std::endl;
 
 	// Create a window
-	int const width = 1280, height = 1024;              // Set the window size
+	int width = 600, height = 600;                      // Set the window size
 	GLFWwindow* window = create_window(width, height);  // Creation using GLFW
 	std::cout << opengl_info_display() << std::endl;;   // Display debug information on command line
+
+	// Update the real width/height dimension
+	glfwGetWindowSize(window, &width, &height);
+	inputs.window = { width, height };
 
 	// Initialize ImGui
 	imgui_init(window);

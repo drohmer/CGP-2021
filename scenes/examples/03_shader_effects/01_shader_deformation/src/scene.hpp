@@ -28,6 +28,7 @@ struct scene_structure {
 
 	cgp::timer_basic timer; // A basic timer for the procedural deformation of the shape
 	gui_parameters gui;     // The standard GUI element storage
+	cgp::inputs_interaction_parameters inputs; // Storage for inputs status (mouse, keyboard, window dimension)
 	
 
 	
