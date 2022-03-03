@@ -223,13 +223,17 @@ namespace cgp
         :data(elements)
     {}
 
+
     template <typename T, int N1, int N2>
     matrix_stack<T, N1, N2>::matrix_stack(buffer_stack<T, N1* N2> const& elements)
         : data()
     {
+        int counter = 0;
         for (int k1 = 0; k1 < N1; ++k1)
-            for (int k2 = 0; k2 < N2; ++k2)
-                at_unsafe(k1, k2) = elements[offset_grid_stack<N2>(k1, k2)];
+            for (int k2 = 0; k2 < N2; ++k2) {
+                at_unsafe(k1, k2) = elements.at_unsafe(counter);
+                counter++;
+            }
     }
 
     template <typename T, int N1, int N2>

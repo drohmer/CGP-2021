@@ -43,6 +43,7 @@ void call_error(std::string const& assert_arg, std::string const& message, std::
 #ifdef CGP_ERROR_EXCEPTION
     throw(std::logic_error(msg));
 #else
+    // Check your command line to see the error message.
     std::cerr << msg;
     abort();
 #endif
