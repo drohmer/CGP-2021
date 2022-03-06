@@ -159,6 +159,33 @@ namespace cgp_test
 
 		}
 
+		{
+			using namespace cgp;
+			{
+				matrix_stack<float, 3, 1> M = vec3(1, 2, 3);
+				assert_cgp_no_msg(is_equal(M, matrix_stack<float,3, 1>{ 1,2,3 }));
+			}
+			{
+				matrix_stack<float, 1, 3> M = vec3(1, 2, 3);
+				assert_cgp_no_msg(is_equal(M, matrix_stack<float, 1, 3>{ 1, 2, 3 }));
+			}
+		}
+
+		{
+			using namespace cgp;
+			{
+				mat2 M2; M2.fill(2.0f);
+				mat3 M3; M3.fill(2.0f);
+				mat4 M4; M4.fill(2.0f);
+				matrix_stack<float, 2, 3> M; M.fill(2.0f);
+
+				assert_cgp_no_msg(is_equal(M2, mat2{ 2, 2, 2,2 }));
+				assert_cgp_no_msg(is_equal(M3, mat3{ 2,2,2, 2,2,2, 2,2,2 }));
+				assert_cgp_no_msg(is_equal(M4, mat4{ 2,2,2,2, 2,2,2,2, 2,2,2,2, 2,2,2,2 }));
+				assert_cgp_no_msg(is_equal(M, matrix_stack<float, 2, 3>{ 2,2,2, 2,2,2 }));
+			}
+		}
+
 
 	}
 }

@@ -285,6 +285,7 @@ namespace cgp
         auto const it_end = end();
         for (; it != it_end; ++it)
             *it = value;
+        return *this;
     }
 
 
