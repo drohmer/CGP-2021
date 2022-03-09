@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.8) 
 
 # Relative path to the library
-# => Adapt this directory to your relative path if needed
+# => You may need to adapt this directory to your relative path in the case you move your directory
 set(PATH_TO_LIBRARY "../../../library/CMakeLists.txt" CACHE PATH "Relative path to CGP library location") 
 
 # Check that the path to the library is correct
