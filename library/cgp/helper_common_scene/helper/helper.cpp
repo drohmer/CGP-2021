@@ -5,6 +5,7 @@
 #include "cgp/shape/shape.hpp"
 #include "cgp/display/display.hpp"
 #include "cgp/interaction/interaction.hpp"
+#include "cgp/drawable/drawable.hpp"
 
 namespace cgp {
 

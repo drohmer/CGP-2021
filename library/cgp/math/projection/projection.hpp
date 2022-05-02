@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cgp/math/matrix/matrix.hpp"
+#include "cgp/vec_mat/vec_mat.hpp"
 
 namespace cgp
 {

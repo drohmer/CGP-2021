@@ -1,7 +1,7 @@
 #include "cgp/base/base.hpp"
 
 #include "rotation_transform.hpp"
-#include "cgp/math/vec_mat/vec_mat.hpp"
+#include "cgp/vec_mat/vec_mat.hpp"
 #include <cmath>
 
 namespace cgp
@@ -247,7 +247,7 @@ namespace cgp
 	
 	mat4 operator*(rotation_transform const& r, mat4 const& M)
 	{
-		return mat4::identity().set_block(r.matrix()) * M;
+		return mat4::build_identity().set_block(r.matrix()) * M;
 	}
 
 

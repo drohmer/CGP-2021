@@ -39,7 +39,7 @@ void draw(mesh_drawable const& drawable, scene_environment_with_environment_map 
 	glBindVertexArray(0);
 
 	glActiveTexture(GL_TEXTURE1); // Clean texture 1 and 2 for further drawing
-	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, 0);

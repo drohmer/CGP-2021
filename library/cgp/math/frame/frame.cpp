@@ -39,7 +39,7 @@ namespace cgp {
 		}
 		mat4 frame::matrix() const
 		{
-			return mat4::affine(orientation.matrix(), position);
+			return mat4::build_affine(orientation.matrix(), position);
 		}
 
 		

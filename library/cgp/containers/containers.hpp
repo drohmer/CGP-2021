@@ -13,4 +13,6 @@
 #include "grid_stack/grid_stack.hpp"
 #include "buffer/buffer.hpp"
 #include "grid/grid.hpp"
+#include "image/image.hpp"
+#include "matrix_stack/matrix_stack.hpp"
 

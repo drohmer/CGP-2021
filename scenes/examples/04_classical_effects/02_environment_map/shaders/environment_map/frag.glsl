@@ -42,7 +42,6 @@ void main()
 		specular = pow( max(dot(R,V),0.0), specular_exp );
 	}
 
-
 	vec2 uv_image = vec2(fragment.uv.x, 1.0-fragment.uv.y);
 	if(texture_inverse_y) {
 		uv_image.y = 1.0-uv_image.y;

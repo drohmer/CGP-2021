@@ -7,7 +7,7 @@
 namespace cgp_test 
 {
 
-	void text_buffer_stack()
+	void test_buffer_stack()
 	{
 		{
 			cgp::buffer_stack<int,4> a = { 1,2,3,4 };

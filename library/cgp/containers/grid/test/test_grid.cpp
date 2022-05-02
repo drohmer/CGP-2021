@@ -6,12 +6,12 @@
 
 namespace cgp_test {
 
-	void text_grid_2D()
+	void test_grid_2D()
 	{
 		{
 			cgp::grid_2D<int> a;
 			a.resize(2, 2);
-			assert_cgp_no_msg(is_equal(a.dimension, cgp::size_t2{ 2,2 }));
+			assert_cgp_no_msg(is_equal(a.dimension, cgp::int2{ 2,2 }));
 			assert_cgp_no_msg(type_str(a)=="grid_2D<int>");
 
 			a(0, 0) = 1; a(0, 1) = 2;
@@ -34,7 +34,7 @@ namespace cgp_test {
 		{
 			cgp::grid_2D<int> a;
 			a.resize(3, 3);
-			assert_cgp_no_msg(is_equal(a.dimension, cgp::size_t2{ 3,3 }));
+			assert_cgp_no_msg(is_equal(a.dimension, cgp::int2{ 3,3 }));
 			assert_cgp_no_msg(type_str(a) == "grid_2D<int>");
 
 			a(0, 0) = 1; a(0, 1) = 2; a(0, 2) = 3;
@@ -66,12 +66,12 @@ namespace cgp_test {
 	}
 
 
-	void text_grid_3D()
+	void test_grid_3D()
 	{
 		{
 			cgp::grid_3D<int> a;
 			a.resize(2, 2, 2);
-			assert_cgp_no_msg(is_equal(a.dimension, cgp::size_t3{ 2,2,2 }));
+			assert_cgp_no_msg(is_equal(a.dimension, cgp::int3{ 2,2,2 }));
 			assert_cgp_no_msg(type_str(a) == "grid_3D<int>");
 
 			int counter = 0;

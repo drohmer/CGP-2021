@@ -2,6 +2,6 @@
 
 namespace cgp_test
 {
-	void text_grid_2D();
-	void text_grid_3D();
+	void test_grid_2D();
+	void test_grid_3D();
 }

@@ -2,6 +2,6 @@
 
 namespace cgp_test
 {
-	void text_buffer_stack();
+	void test_buffer_stack();
 }
 

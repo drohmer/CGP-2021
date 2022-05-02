@@ -12,7 +12,7 @@ namespace cgp_test
 	{
 		{
 			rotation_transform R = rotation_transform::from_axis_angle(vec3(1,0,0),cgp::Pi/2.0f);
-			assert_cgp_no_msg( type_str(R)=="rotation" );
+			assert_cgp_no_msg( type_str(R)=="rotation_transform" );
 		}
 
 		{

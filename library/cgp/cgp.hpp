@@ -19,9 +19,12 @@
 
 #include "base/base.hpp"
 #include "containers/containers.hpp"
-#include "math/math.hpp"
+#include "drawable/drawable.hpp"
 #include "files/files.hpp"
-#include "shape/shape.hpp"
-#include "display/display.hpp"
-#include "interaction/interaction.hpp"
 #include "helper_common_scene/helper_common_scene.hpp"
+#include "interaction/interaction.hpp"
+#include "math/math.hpp"
+#include "display/display.hpp"
+#include "shape/shape.hpp"
+#include "vec_mat/vec_mat.hpp"
+

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cgp/math/rotation_transform/rotation_transform.hpp"
+#include "cgp/vec_mat/vec_mat.hpp"
 
 namespace cgp
 {

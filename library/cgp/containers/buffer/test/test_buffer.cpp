@@ -3,7 +3,7 @@
 namespace cgp_test 
 {
 
-	void text_buffer()
+	void test_buffer()
 	{
 		{
 			cgp::buffer<int> a = { 1,2,3 };

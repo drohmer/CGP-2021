@@ -17,12 +17,25 @@ namespace cgp
     {
         /** Internal data is a std::array of values */
         std::array<T, N> data;
+        // Note: buffer_stack use the default constructor of std::array<T,N>
+
+
+
+        // ******************************************************* //
+        //  Size and fill
+        // ******************************************************* //
 
         /** Size of the buffer (N - known at compile time) */
         int size() const;
 
         /** Fill all data with the given value */
         buffer_stack<T,N>& fill(T const& value);
+
+
+
+        // ******************************************************* //
+        //  Get/Set
+        // ******************************************************* //
 
         /** Element access
          * Allows buffer[i], buffer(i), and buffer.at(i)
@@ -33,8 +46,8 @@ namespace cgp
         T const& operator()(int index) const;
         T& operator()(int index);
 
-        T const& at(int index) const;
-        T& at(int index);
+        T const& at(int index) const { return data[index]; }
+        T& at(int index)             { return data[index]; }
 
 
         /** Iterators
@@ -215,15 +228,6 @@ namespace cgp
 
 
 
-    template <typename T, int N> T const& buffer_stack<T, N>::at(int index) const
-    {
-        return data.at(index);
-    }
-
-    template <typename T, int N> T& buffer_stack<T, N>::at(int index)
-    {
-        return data.at(index);
-    }
 
     template <typename T, int N> typename std::array<T, N>::iterator buffer_stack<T, N>::begin()
     {

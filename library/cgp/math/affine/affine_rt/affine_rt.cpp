@@ -17,7 +17,7 @@ namespace cgp
 
 	mat4 affine_rt::matrix() const
 	{
-		return mat4::affine(rotation.matrix(), translation);
+		return mat4::build_affine(rotation.matrix(), translation);
 	}
 
 	vec3 operator*(affine_rt const& T, vec3 const& p)

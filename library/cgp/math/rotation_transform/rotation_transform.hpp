@@ -1,11 +1,15 @@
 #pragma once
 
 #include "../quaternion/quaternion.hpp"
-#include "../matrix/matrix.hpp"
+
+#include "cgp/vec_mat/vec_mat.hpp"
+
 
 
 namespace cgp
 {
+
+
 	/** Structure handling a rotation.
 	* Provides an interface compatible with different representation of rotation (matrix, quaternion, axis/angle)
 	* The internal storage of the rotation is a unit quaternion, but its use may not be aware of it.

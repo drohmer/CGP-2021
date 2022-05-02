@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cgp/display/image/image.hpp"
+#include "cgp/containers/image/image.hpp"
 #include "cgp/display/opengl/opengl.hpp"
 #include "cgp/containers/containers.hpp"
 

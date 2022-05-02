@@ -394,20 +394,11 @@ namespace cgp
 		return shape;
 	}
 
-	//mesh mesh_primitive_cubic_grid(vec3 const& p000={0,0,0}, vec3 const& p100={1,0,0}, vec3 const& p110={1,1,0}, vec3 const& p010={0,1,0}, vec3 const& p001={0,0,1}, vec3 const& p101={1,0,1}, vec3 const& p111={1,1,1}, vec3 const& p011={0,1,1}, int Nx=10, int Ny=10, int Nz=10);
+
 	mesh mesh_primitive_cubic_grid(vec3 const& p000, vec3 const& p100, vec3 const& p110, vec3 const& p010, vec3 const& p001, vec3 const& p101, vec3 const& p111, vec3 const& p011, int Nx, int Ny, int Nz)
 	{
 		assert_cgp(Nx>=2 && Ny>=2 && Nz>=2, "Nx, Ny, Nz must be > 2");
 
-		//vec3 u = edge_length*vec3{1,1,1};
-		//vec3 p000 = center - u/2.0f;
-		//vec3 p100 = p000 + u*vec3{1,0,0};
-		//vec3 p110 = p000 + u*vec3{1,1,0};
-		//vec3 p010 = p000 + u*vec3{0,1,0};
-		//vec3 p001 = p000 + u*vec3{0,0,1};
-		//vec3 p101 = p000 + u*vec3{1,0,1};
-		//vec3 p111 = p000 + u*vec3{1,1,1};
-		//vec3 p011 = p000 + u*vec3{0,1,1};
 
 		mesh shape;
 		shape.push_back(mesh_primitive_grid(p000, p100, p101, p001, Nx, Nz));
@@ -430,10 +421,6 @@ namespace cgp
 		return shape;
 	}
 
-	//mesh mesh_primitive_cube_grid(vec3 const& center, float edge_length, int Nx, int Ny, int Nz)
-	//{
-
-	//}
 
 	mesh mesh_primitive_arrow(vec3 const& p0, vec3 const& p1, float cylinder_radius, float cone_length_scale, float cone_radius_scale, int N)
 	{

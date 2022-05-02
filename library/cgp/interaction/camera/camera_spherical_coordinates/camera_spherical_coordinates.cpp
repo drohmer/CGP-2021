@@ -35,7 +35,7 @@ namespace cgp
 
 		vec3 const u = normalize(eye - center);
 		if (axis == camera_spherical_coordinates_axis::y) {
-			phi = -std::atan2(u.x, u.z);// -std::atan2(u.y, u.x) - Pi / 2.0f;
+			phi = -std::atan2(u.x, u.z);
 			theta = std::asin(u.y);
 		}
 		else if (axis == camera_spherical_coordinates_axis::z) {

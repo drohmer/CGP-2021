@@ -19,16 +19,14 @@ namespace cgp
     using int2 = buffer_stack2<int>;
     using int3 = buffer_stack3<int>;
     using int4 = buffer_stack4<int>;
-    using size_t2 = buffer_stack2<size_t>;
-    using size_t3 = buffer_stack3<size_t>;
-    using size_t4 = buffer_stack4<size_t>;
-    using uint2 = buffer_stack<unsigned int, 2>;
-    using uint3 = buffer_stack<unsigned int, 3>;
-    using uint4 = buffer_stack<unsigned int, 4>;
 
-    using vec2 = buffer_stack<float, 2>;
-    using vec3 = buffer_stack<float, 3>;
-    using vec4 = buffer_stack<float, 4>;
+    using uint2 = buffer_stack2<unsigned int>;
+    using uint3 = buffer_stack3<unsigned int>;
+    using uint4 = buffer_stack4<unsigned int>;
+
+    using vec2 = buffer_stack2<float>;
+    using vec3 = buffer_stack3<float>;
+    using vec4 = buffer_stack4<float>;
 
 
     std::string type_str(int2 const&);

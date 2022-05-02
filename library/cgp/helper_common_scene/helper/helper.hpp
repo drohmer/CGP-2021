@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cgp/display/display.hpp"
+#include "cgp/display/opengl/opengl.hpp"
 #include "cgp/math/math.hpp"
 #include "cgp/interaction/interaction.hpp"
 
